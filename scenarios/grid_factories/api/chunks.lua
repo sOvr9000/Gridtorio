@@ -911,7 +911,7 @@ function chunks.unlockChunk(player, surface, chunkCoords, direction, notify)
                                 force = "player",
                             }
                         end
-                        pos = {x = newChunkCoords.x * 32 + 31, y = newChunkCoords.y * 32 + 30}
+                        pos = {x = newChunkCoords.x * 32 + 31, y = newChunkCoords.y * 32 + 29}
                         if not util.tileIsWater(surface, pos.x, pos.y, 1) then
                             surface.create_entity{
                                 name = "big-electric-pole",

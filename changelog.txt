@@ -1,6 +1,10 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.0
 Date: 2024.08.15
+  Changes:
+    - Fixed big power poles not actually creating perfect X's from the "Free Roboports" upgrade.
+  Features:
+    - (TODO) Added "Free Railways" upgrade.
   Major Features:
     - (TODO) Swapped out ruins chunks with multi-chunk fortresses, containing unique upgrades.
     - (TODO) Added addon "Supply / Demand".
