@@ -1,0 +1,9 @@
+{
+    "name": "gridtorio",
+    "version": "1.2.0",
+    "title": "Gridtorio",
+    "author": "sOvr9000",
+    "description": "Distributes the Gridtorio scenario by sOvr9000.  Find a new and refreshing gameplay experience with this scenario of simple rules!",
+    "factorio_version": "1.1",
+    "dependencies": []
+}

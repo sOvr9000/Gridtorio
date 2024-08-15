@@ -1,0 +1,217 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.2.0
+Date: 2024.08.15
+  Major Features:
+    - (TODO) Swapped out ruins chunks with multi-chunk fortresses, containing unique upgrades.
+    - (TODO) Added addon "Supply / Demand".
+    - (TODO) Added addon "Lazy Bastard Mode".
+    - (TODO) Added addon "Dangerous Artillery".
+    - (TODO) Added addon "Brave New World".
+    - (TODO) Added addon "Rocket Silo Base".
+    - (TODO) Added addon "Automatic Restarts".
+    - (TODO) Added addon "Trade Collection".
+---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 2024.08.14
+  Bugfixes:
+    - Fixed that newly joining players to a server do not see the current chunk unlock cost.
+    - Fixed a crash caused by overflowing a dimensional chunk's red chests from the corresponding void dimension's blue chests.
+  Changes:
+    - Made it so that red chests around dimensional chunks can have limited capacity and the item transferral works as expected.
+  Balancing:
+    - Made it so that infinity chests don't spawn until the void dimension gets conquered.
+  Features:
+    - Added "available coins" display above the chunk unlocking buttons.
+    - Chunk unlocking buttons indicate whether you can or cannot afford another chunk unlock.
+    - Chunk unlocking buttons indicate whether the targeted chunk is in the "danger zone", where chunks can become infested.
+    - Made it so that red chests from markets serve as extended player inventories for coins, for use with chunk unlocking, market deletion, etc. when the player runs out of coins in their inventory.
+    - Added "History" tab in the menu.
+    - Added commands /export-values and /export-trades for exporting item values and trade overview to CSV strings.
+    - Added tooltip for items in trade overview so that you can read the item's name.
+    - Added the ability to set the trade overview filter via mouse click on a trade in the trade overview.
+    - Added trade quality filter in trade overview.
+    - Added extra statistics for total number of void chunks opened and a list of acquired infinity chests.
+    - Added a toggle for the possibility of infested chunks. (QoL for mods that benefit from biter farming)
+---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 2024.08.08
+  Bugfixes:
+    - Fixed that players get stuck inside each other on spawn, and they now spawn in a position such that they can be moved by a belt.
+  Scripting:
+    - Added remote interfaces for using this scenario's functions.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 2024.08.08
+  Bugfixes:
+    - Fixed that newly joining players to a server do not spawn in "Gridtorio".
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2024.08.08
+  Bugfixes:
+    - Added light mod support by fixing some crashes related to purchasing markets while overhaul mods are installed.
+    - Fixed that infinity chunks from void dimensions were useless.
+    - Fixed that generating too many void dimensions would cause teleporters to break their connections, leaving you trapped in a void dimension forever.
+    - Made it so that teleporters regenerate their teleporter pads upon use, in case atomic bombs destroy them.
+  Balancing:
+    - Infinity chest loot now only increases after killing all biters in any void dimension.
+    - Decreased the size of the void dimensions from a 9x9 maze to a 7x7.
+  Changes:
+    - Made void chunks less mysterious while preserving the challenge of interacting with them.
+    - Refined some GUI layouts in the menu.
+  Features:
+    - Added in-game full scenario customization from Nauvis.
+---------------------------------------------------------------------------------------------------
+Version: 0.4.0
+Date: 2024.08.01
+  Bugfixes:
+    - Fixed that the notification for depleting a resource in a chunk was indicating the wrong position.
+    - Fixed that coin statistics were displaying 4x the true value.
+  Changes:
+    - Added some detail to the concrete flooring to make it look less plain or boring.
+  Balancing:
+    - Spawners from infested chunks are now killed by killing all biters from void dimensions.
+    - Increased the minimum distance of infested chunks from four chunks to five.
+  Major Features:
+    - Added upgrade "Dimensional Chunks".
+---------------------------------------------------------------------------------------------------
+Version: 0.3.1
+Date: 2024.07.30
+  Bugfixes:
+    - Fixed that depleting a resource in a chunk was causing a crash.
+---------------------------------------------------------------------------------------------------
+Version: 0.3.0
+Date: 2024.07.30
+  Bugfixes:
+    - Fixed that markets with extra I/O chests wouldn't be removed by the market deletion tool.
+    - Fixed that markets with extra I/O chests could be missing one chest if it's too close to a grid wall.
+    - Fixed that players returning to a multiplayer session would not receive the upgrades that had been unlocked while they were gone.
+  Balancing:
+    - Decreased max void chunk distance to be less than max super chunk distance.
+    - Decreased the default size of ore deposits from 6x6 to 5x5.
+    - Decreased the default ore richness by 12%.
+    - Newly unlocked "safe" chunks now have a 2.5% chance of secretly being infested by biters with unkillable spawners.
+    - Changed the requirement for the upgrade "Patch Purification" from building 240 electric mining drills to depleting the deposits from 10 chunks.
+    - Reduced the initial market RNG on the values of items selected for a trade from 5% to 2%.
+    - Reduced the "Greater Market RNG" effect on the values of items selected for a trade from 15% to 5%.
+    - Changed the requirement for the upgrade "Market Deletion" from having 10 markets to having 15 markets.
+    - Increased the minimum distance at which void chunks can spawn from two chunks to three chunks.
+    - Increased the minimum chance of a void chunk spawning from 4% to 6%.
+    - Increased the chunk cost limit from 100 to 500.
+  Changes:
+    - The power poles from the "Free Roboports" upgrade now make perfect X's from map view.
+  Features:
+    - Added tool for upgrading previously bought markets to have extra I/O chests.
+    - Added upgrade "No More Infested Chunks".
+    - Added upgrade "Reduced Void Chunk Chance".
+    - Added menu tab for your stats and global stats such as chunks unlocked, coin production and consumption rates, etc.
+  Major Features:
+    - Added discoverable area: "The Great Ring of Super Chunks".
+  Scripting:
+    - Refactored code to be more organized, readable, extensible, and accessible.
+---------------------------------------------------------------------------------------------------
+Version: 0.2.0
+Date: 2024.07.26
+  Bugfixes:
+    - Fixed that attempting to obliviate a resource from a deposit would cause a crash if you don't have enough coins.
+    - Fixed that resource obliviation cost wasn't calculated correctly.
+  Changes:
+    - Added cost to resource obliviation confirmation so that it's clearer that it costs coins, in comparison to the market deletion tool.
+    - The resource obliviation tool now warns you in advance, before asking for confirmation, that you've selected the most abundant resource.
+    - The patch purification resource selected in GUI now resets upon successfully obliviating a resource from a deposit.
+    - Made the progress bar orange for upgrade requirement completion.
+    - Made the Menu GUI taller.
+    - Changed the number of columns in the trade overview from 3 to 4.
+  Balancing:
+    - Changed requirement for upgrade "Trade Overview Quality" from unlocking 100 chunks to owning 30 active markets.
+    - Changed requirement for upgrade "Trade Uniqueness" from owning 30 active markets to owning 50 active markets.
+  Features:
+    - Added link to join the Discord for this scenario.
+  Major Features:
+    - Added upgrade "Automated Chunk Unlocking".
+    - Added upgrade "Extra Market I/O Chests".
+---------------------------------------------------------------------------------------------------
+Version: 0.1.1
+Date: 2024.07.25
+  Bugfixes:
+    - Fixed multiplayer desyncs
+---------------------------------------------------------------------------------------------------
+Version: 0.1.0
+Date: 2024.07.25
+  Bugfixes:
+    - Fixed that newly joining players on a save weren't receiving the currently unlocked upgrades.
+    - Fixed that markets could contain multiple trades that take the same item, which made it impossible to automate some trades.
+    - Fixed that the blue chest of a market would overconsume items while filling the red chest.  Items are no longer lost in any case.
+    - Fixed that the upgrades tab was shared across players.  Unlocked upgrades are still shared between players, but the GUI management is now unique to each player.
+  Changes:
+    - Made the Menu GUI draggable.
+    - Made the Menu GUI close when pressing "Esc" or "E"
+    - Removed the "Confirm (E)" tooltip when hovering over the "Unlock" button for an upgrade.
+    - Markets now have anywhere from 3 to 5 trades instead of 2 to 4.
+  Major Features:
+    - Added upgrade "Patch Purification"
+    - Added upgrade "Greater Market RNG"
+    - Added upgrade "Free Roboports"
+    - Added upgrade "Trade Uniqueness"
+---------------------------------------------------------------------------------------------------
+Version: 0.0.8
+Date: 2024.07.24
+  Changes:
+    - The version of the scenario now prints at the beginning of the game.
+    - Disabled trade overview, filtering, quality display, and market deletion for early game.
+  Features:
+    - Added command /gridtorio-version for checking the version of the scenario to help with troubleshooting.
+  Major Features:
+    - Added the upgrade tree, an extensible system for completing tasks which then unlock other parts of the game.
+---------------------------------------------------------------------------------------------------
+Version: 0.0.7
+Date: 2024.07.22
+  Bugfixes:
+    - Fixed critical issue where playing the game across different sessions, by saving and then reloading, would cause crashes upon purchasing a market.
+---------------------------------------------------------------------------------------------------
+Version: 0.0.6
+Date: 2024.07.22
+  Bugfixes:
+    - Newly joining players in multiplayer did not have access to trade overview, and using the filter function caused a crash.
+  Changes:
+    - Trades for each market in the trade overview now wrap around within three columns instead of five.
+  Major Features:
+    - Added tool to permanently delete markets at the cost of coins.
+---------------------------------------------------------------------------------------------------
+Version: 0.0.5
+Date: 2024.07.21
+  Balancing:
+    - Increased market spawn rate from 20% per chunk to 25% per chunk.
+  Changes:
+    - Changed starting market trade iron-stick -> coin to steam-engine -> coin.
+    - Changed starting market trade electronic-circuit -> wood to inserter -> wood.
+    - Overhauled GUI layout.
+  Features:
+    - Added trade "productivity" info in the trade overview.  These numbers are color coded and indicate the quality of the trade.
+    - Added message when teleporting to another surface.
+    - Added the ability to modify gridtorio ore and biter generation settings with startup map generation settings.
+  Major Features:
+    - Added trade overview search and filter functionality.
+---------------------------------------------------------------------------------------------------
+Version: 0.0.4
+Date: 2024.07.20
+  Bugfixes:
+    - Actually implemented features of previous version.  (oops)
+---------------------------------------------------------------------------------------------------
+Version: 0.0.3
+Date: 2024.07.20
+  Balancing:
+    - Markets now only generate their trades upon chunk purchase.
+    - Removed trees.
+  Major Features:
+    - Added void chunks.
+    - Added market trade overview.
+---------------------------------------------------------------------------------------------------
+Version: 0.0.2
+Date: 2024.07.18
+  Bugfixes:
+    - Fixed markets not automatically trading in the non-starting chunk.
+---------------------------------------------------------------------------------------------------
+Version: 0.0.1
+Date: 2024.07.17
+  Major Features:
+    - Initial release.
