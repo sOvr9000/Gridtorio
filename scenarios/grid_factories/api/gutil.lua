@@ -669,7 +669,7 @@ function gutil.sumInventories(invs)
     return totalInv
 end
 
-function gutil.nextHighestItemByValue(itemName)
+function gutil.nextHighestItemByValue(itemName, allowFluids)
     local itemValue = global.itemValues[itemName]
     local closestItemValue = 0
     local closestItem
@@ -687,6 +687,9 @@ function gutil.nextHighestItemByValue(itemName)
                 end
             end
         end
+    end
+    if closestItem and not allowFluids and not game.item_prototypes[closestItem] then
+        closestItem = gutil.nextHighestItemByValue(closestItem, false)
     end
     return closestItem
 end

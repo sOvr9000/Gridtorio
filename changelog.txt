@@ -1,6 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.0
 Date: 2024.08.15
+  Bugfixes:
+    - Fixed that void dimensions were attempting to spawn fluids with infinity chests (causing a crash).
   Changes:
     - Fixed big power poles not actually creating perfect X's from the "Free Roboports" upgrade.
   Features:
