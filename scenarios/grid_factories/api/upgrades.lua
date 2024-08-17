@@ -242,6 +242,7 @@ function upgrades.onUpgradeUnlocked(player, upgrade, unlockedBy)
     elseif upgrade.name == "tradeOverviewFilter" then
         menuTabbedPane.TOFlow.TOTopFlow.tradeFilterFrame.tradeFilterLocked.visible = false
         menuTabbedPane.TOFlow.TOTopFlow.tradeFilterFrame.tradeFilter.visible = true
+        menuTabbedPane.TOFlow.TOTopFlow.tradeFilterFrame.tradeFilter.state = global.config.upgrades.enabledByDefault.tradeOverviewFilter
         menuTabbedPane.TOFlow.TOTopFlow.tradeFilterFrame.tradeFilterFlow.visible = true
     elseif upgrade.name == "marketRng" then
         menuTabbedPane.toolsFlow.marketRNGFlow.featureLockedFrame.visible = false
@@ -271,6 +272,7 @@ function upgrades.onUpgradeUnlocked(player, upgrade, unlockedBy)
         menuTabbedPane.toolsFlow.visible = true
         menuTabbedPane.toolsFlow.automatedChunkUnlockingFlow.featureLockedFrame.visible = false
         menuTabbedPane.toolsFlow.automatedChunkUnlockingFlow.enableAutomatedChunkUnlocking.visible = true
+        menuTabbedPane.toolsFlow.automatedChunkUnlockingFlow.enableAutomatedChunkUnlocking.state = global.upgrades.enabledUpgrades.automatedChunkUnlocking
         menuTabbedPane.toolsFlow.automatedChunkUnlockingFlow.enableAutomatedChunkUnlockingLabel.visible = true
     elseif upgrade.name == "dimensionalChunks" then
         menuTabbedPane.statsFlow.featureLockedFrame.visible = false
@@ -309,9 +311,9 @@ function upgrades.onButtonClick(player, button, menuTab)
                 for _, p in pairs(game.connected_players) do
                     if upgrade.canToggle then
                         if upgrade.isGlobalToggle then
-                            global.upgrades.globallyEnabledUpgrades[upgrade.name] = true
+                            global.upgrades.globallyEnabledUpgrades[upgrade.name] = global.config.upgrades.enabledByDefault[upgrade.name]
                         else
-                            global.upgrades.enabledUpgrades[p.name][upgrade.name] = true
+                            global.upgrades.enabledUpgrades[p.name][upgrade.name] = global.config.upgrades.enabledByDefault[upgrade.name]
                         end
                     end
                     upgrades.onUpgradeUnlocked(p, upgrade, player)

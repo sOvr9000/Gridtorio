@@ -175,7 +175,6 @@ local upgrades = {
         noMoreInfestedChunks = false,
         reducedVoidChunkChance = false,
         dimensionalChunks = false,
-        infinityChunks = false,
         marketDeletion = false,
         marketIoChests = false,
         patchPurification = false,
