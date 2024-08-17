@@ -7,6 +7,7 @@ Date: 2024.08.15
     - Fixed big power poles not actually creating perfect X's from the "Free Roboports" upgrade.
   Features:
     - (TODO) Added "Free Railways" upgrade.
+    - Added scenario settings for toggling whether certain upgrades should be enabled by default.
   Major Features:
     - (TODO) Swapped out ruins chunks with multi-chunk fortresses, containing unique upgrades.
     - (TODO) Added addon "Supply / Demand".
