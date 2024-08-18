@@ -10,6 +10,8 @@ Date: 2024.08.15
     - Added scenario settings for toggling whether certain upgrades should be enabled by default.
     - (TODO) Added ability to import and export scenario settings.
   Major Features:
+    - (TODO) Added scenario setting for preventing trades from containing items that aren't yet researched in the tech tree.
+    - (TODO) Added super trade chunks that involve many items per trade.
     - (TODO) Added scenario setting for adjusting the impact of supply and demand on market trades.
     - (TODO) Swapped out ruins chunks with multi-chunk fortresses, containing unique upgrades.
     - (TODO) Added addon "Lazy Bastard Mode".
