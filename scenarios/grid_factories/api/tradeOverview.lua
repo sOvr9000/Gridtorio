@@ -148,7 +148,7 @@ function tradeOverview.refresh(player)
     TOScrollFrame.clear()
     local i = 0
     local qualityFilter = function(trade)
-        if not enableQuality.state or trade.quality > qualitySlider.slider_value then
+        if not upgrades.isUpgradeUnlocked "tradeOverviewQuality" or not enableQuality.state or trade.quality > qualitySlider.slider_value then
             return true
         end
         return false
