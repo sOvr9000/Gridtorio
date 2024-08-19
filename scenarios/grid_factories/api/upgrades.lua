@@ -118,7 +118,13 @@ function upgrades.generateInspectFrame(panelsFlow)
         name = "isToggleable",
         caption = {"gridtorio-gui.upgrades-can-be-toggled"},
     }
-    isToggleable.style.font_color = global.colors.yellow -- "yellow"
+    isToggleable.style.font_color = global.colors.yellow
+    local isDisabled = inspectFrame.add{
+        type = "label",
+        name = "isDisabled",
+        caption = {"gridtorio-gui.upgrades-is-disabled"},
+    }
+    isDisabled.style.font_color = global.colors.yellow
     local inspectLine = inspectFrame.add{
         type = "line",
         name = "inspectLine",
@@ -341,6 +347,7 @@ function upgrades.refresh(player)
     local inspectRequirementCheck = inspectFrame.inspectRequirementFlow.inspectRequirementCheck
     local inspectProgress = inspectFrame.inspectProgress
     local isToggleable = inspectFrame.isToggleable
+    local isDisabled = inspectFrame.isDisabled
 
     local requirementParams = upgrades.getRequirementsParameters(upgrade.requirement)
 
@@ -349,6 +356,7 @@ function upgrades.refresh(player)
     inspectRequirement.caption = {"upgrade-requirements." .. util.hyphenateName(upgrade.requirement.type), table.unpack(requirementParams)}
 
     isToggleable.visible = upgrade.canToggle
+    isDisabled.visible = global.config.upgrades.enabledByDefault[upgrade.name] == false -- can't use "not ..." because it would also be true when enabledByDefault doesn't contain the key (ugly Lua stuff)
 
     if global.upgrades.unlocked[upgrade.name] then
         unlockButton.caption = {"gridtorio-gui.upgrades-unlocked"}

@@ -6,6 +6,7 @@ Date: 2024.08.15
     - Fixed that trade quality filter was effective before unlocking the upgrade "Trade Overview Quality".
   Changes:
     - Fixed big power poles not actually creating perfect X's from the "Free Roboports" upgrade.
+    - Upgrades that are disabled by default now indicate so in the upgrades tab.
   Features:
     - (TODO) Added "Free Railways" upgrade.
     - Added scenario settings for toggling whether certain upgrades should be enabled by default.
