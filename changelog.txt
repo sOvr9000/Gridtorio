@@ -7,6 +7,7 @@ Date: 2024.08.15
   Changes:
     - Fixed big power poles not actually creating perfect X's from the "Free Roboports" upgrade.
     - Upgrades that are disabled by default now indicate so in the upgrades tab.
+    - Upgrade requirement progress now appears to be complete when it reaches 100% progress.
   Features:
     - (TODO) Added "Free Railways" upgrade.
     - Added scenario settings for toggling whether certain upgrades should be enabled by default.

@@ -1,5 +1,6 @@
 
 local util = require "api/gutil"
+local upgrades = require "api/upgrades"
 
 local areaDiscovery = {}
 
@@ -18,6 +19,7 @@ end
 
 function areaDiscovery.discover(area)
     global.areaDiscovery.discovered[area] = true
+    upgrades.refresh()
 end
 
 

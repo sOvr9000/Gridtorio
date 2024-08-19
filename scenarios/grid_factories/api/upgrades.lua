@@ -333,6 +333,12 @@ function upgrades.onButtonClick(player, button, menuTab)
 end
 
 function upgrades.refresh(player)
+    if not player then
+        for _, p in pairs(game.connected_players) do
+            upgrades.refresh(p)
+        end
+        return
+    end
     local menuTabbedPane = player.gui.screen.menuFrame.menuTabbedPane
     local upgradesFlow = menuTabbedPane.upgradesFlow
     local panelsFlow = upgradesFlow.panelsFlow
@@ -358,14 +364,18 @@ function upgrades.refresh(player)
     isToggleable.visible = upgrade.canToggle
     isDisabled.visible = global.config.upgrades.enabledByDefault[upgrade.name] == false -- can't use "not ..." because it would also be true when enabledByDefault doesn't contain the key (ugly Lua stuff)
 
-    if global.upgrades.unlocked[upgrade.name] then
-        unlockButton.caption = {"gridtorio-gui.upgrades-unlocked"}
-        unlockButton.enabled = false
+    local showCompleteRequirement = function()
         inspectProgress.visible = false
         inspectRequirement.tooltip = ""
         inspectRequirementCheck.visible = true
         inspectRequirementCheck.caption = "[virtual-signal=signal-check]"
         styles.applyStyle(inspectRequirement, "inspectRequirementComplete")
+    end
+
+    if global.upgrades.unlocked[upgrade.name] then
+        unlockButton.caption = {"gridtorio-gui.upgrades-unlocked"}
+        unlockButton.enabled = false
+        showCompleteRequirement()
     else
         unlockButton.caption = {"gridtorio-gui.upgrades-unlock"}
         unlockButton.enabled = true
@@ -387,6 +397,9 @@ function upgrades.refresh(player)
         end
         inspectRequirementCheck.visible = false
         styles.applyStyle(inspectRequirement, "inspectRequirementIncomplete")
+        if prog == 1 then
+            showCompleteRequirement()
+        end
     end
 end
 
