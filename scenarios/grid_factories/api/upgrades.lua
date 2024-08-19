@@ -236,13 +236,13 @@ function upgrades.onUpgradeUnlocked(player, upgrade, unlockedBy)
     elseif upgrade.name == "tradeOverviewQuality" then
         menuTabbedPane.TOFlow.TOTopFlow.extraFrame.enableQualityLocked.visible = false
         menuTabbedPane.TOFlow.TOTopFlow.extraFrame.qualityFlow.visible = true
+        menuTabbedPane.TOFlow.TOTopFlow.extraFrame.qualityFlow.enableQualityFlow.enableQuality.state = global.config.upgrades.enabledByDefault.tradeOverviewQuality
     elseif upgrade.name == "patchPurification" then
         menuTabbedPane.toolsFlow.patchPurificationLockedFrame.visible = false
         menuTabbedPane.toolsFlow.patchPurificationFlow.visible = true
     elseif upgrade.name == "tradeOverviewFilter" then
         menuTabbedPane.TOFlow.TOTopFlow.tradeFilterFrame.tradeFilterLocked.visible = false
         menuTabbedPane.TOFlow.TOTopFlow.tradeFilterFrame.tradeFilter.visible = true
-        menuTabbedPane.TOFlow.TOTopFlow.tradeFilterFrame.tradeFilter.state = global.config.upgrades.enabledByDefault.tradeOverviewFilter
         menuTabbedPane.TOFlow.TOTopFlow.tradeFilterFrame.tradeFilterFlow.visible = true
     elseif upgrade.name == "marketRng" then
         menuTabbedPane.toolsFlow.marketRNGFlow.featureLockedFrame.visible = false
