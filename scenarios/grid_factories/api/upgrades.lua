@@ -265,6 +265,11 @@ function upgrades.onUpgradeUnlocked(player, upgrade, unlockedBy)
         menuTabbedPane.toolsFlow.freeRoboportsFlow.enableFreeRoboports.visible = true
         menuTabbedPane.toolsFlow.freeRoboportsFlow.enableFreeRoboportsLabel.visible = true
         menuTabbedPane.toolsFlow.freeRoboportsFlow.enableFreeRoboports.state = global.upgrades.globallyEnabledUpgrades.freeRoboports
+    elseif upgrade.name == "freeRailways" then
+        menuTabbedPane.toolsFlow.freeRailwaysFlow.featureLockedFrame.visible = false
+        menuTabbedPane.toolsFlow.freeRailwaysFlow.enableFreeRailways.visible = true
+        menuTabbedPane.toolsFlow.freeRailwaysFlow.enableFreeRailwaysLabel.visible = true
+        menuTabbedPane.toolsFlow.freeRailwaysFlow.enableFreeRailways.state = global.upgrades.globallyEnabledUpgrades.freeRailways
     elseif upgrade.name == "marketIoChests" then
         menuTabbedPane.toolsFlow.marketIOChestsFlow.featureLockedFrame.visible = false
         menuTabbedPane.toolsFlow.marketIOChestsFlow.enableMarketIOChests.visible = true

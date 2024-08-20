@@ -11,6 +11,7 @@ local teleporters = require "api/teleporters"
 local coinBanks = require "api/coinBanks"
 local players = require "api/players"
 local history = require "api/history"
+local railways = require "api/railways"
 
 local chunks = {}
 
@@ -104,6 +105,22 @@ function chunks.onChunkBought(player, surface, chunkCoords, direction)
                         game.print{"", "[color=yellow]", {"gridtorio.chunk-infested", "[gps=" .. (newChunkCoords.x * 32 + 16) .. ", " .. (newChunkCoords.y * 32 + 16) .. ",gridtorio]"}, "[.color]"}
                     end
                 end
+            end
+        end
+    end
+
+    -- Test for free railways
+    if upgrades.isUpgradeEnabled "freeRailways" then
+        local pos = {x = newChunkCoords.x * 32, y = newChunkCoords.y * 32}
+        local itemStack = railways.getItemStack(newChunkCoords)
+        if itemStack then
+            for _, bpEntity in pairs(itemStack.get_blueprint_entities()) do
+                local entity = surface.create_entity{
+                    name = bpEntity.name,
+                    position = {x = pos.x + bpEntity.position.x, y = pos.y + bpEntity.position.y},
+                    direction = bpEntity.direction,
+                    force = "neutral",
+                }
             end
         end
     end
@@ -303,6 +320,13 @@ function chunks.initChunk(surface, chunkCoords, area)
     chance = chance * chance * (vcmc - global.config.voidChunks.minChance) + global.config.voidChunks.minChance
     chance = math.min(math.max(chance, global.config.voidChunks.minChance), vcmc)
     local isVoidChunk = not isStartChunk and dist >= global.config.voidChunks.minDistance and math.random() < chance
+
+    -- Ensure that void chunks do not obstruct future railways up to a certain distance from spawn
+    if isVoidChunk and chance < 0.4 then
+        if railways.getItemStack(chunkCoords) then
+            isVoidChunk = false
+        end
+    end
 
     -- Test for super chunk
     local isSuperChunk = not isStartChunk

@@ -172,6 +172,13 @@ function settingsGUI.addSettingGUI(player, path, settingName, settingObj)
                 items = global.settingsGUI.coloredTileDropdown,
                 selected_index = util.indexOf(global.settingsGUI.coloredTileDropdown, settingObj),
             }
+        elseif global.settingsGUI.configWithRailGridTypeDropdown[settingName] then
+            local dropdown = flow.add{
+                type = "drop-down",
+                name = "dropdown",
+                items = global.settingsGUI.railGridTypeDropdown,
+                selected_index = util.indexOf(global.settingsGUI.railGridTypeDropdown, settingObj),
+            }
         else
             local field = flow.add{
                 type = "textfield",
@@ -326,16 +333,21 @@ end
 function settingsGUI.onDropdownChanged(player, dropdown)
     local path = settingsGUI.getPathToElement(dropdown)
     log(table.concat(path, "."))
+    local settingName = path[#path]
+    log("settingName = " .. settingName)
     local settingObj = global.config
     for i = 1, #path - 1 do
-        s = path[i]
-        settingObj = settingObj[s]
-        log(s)
+        settingObj = settingObj[path[i]]
     end
-    local tile = global.settingsGUI.coloredTileDropdown[dropdown.selected_index]
-    log("Setting global.config." .. table.concat(path, ".") .. " = " .. tile)
+    local newSettingObj
+    if settingName == "railGridType" then
+        newSettingObj = global.settingsGUI.railGridTypeDropdown[dropdown.selected_index]
+    else
+        newSettingObj = global.settingsGUI.coloredTileDropdown[dropdown.selected_index]
+    end
+    log("Setting global.config." .. table.concat(path, ".") .. " = " .. newSettingObj)
     local t = type(settingObj[path[#path]])
-    settingObj[path[#path]] = tile
+    settingObj[path[#path]] = newSettingObj
     settingsGUI.randomize(player)
 end
 

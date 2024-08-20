@@ -5,6 +5,7 @@ local surfaceGen = require "api/surfaceGen"
 local itemValues = require "api/itemValues"
 local itemValuesGrad = require "api/itemValuesGrad"
 local newGridtorio = require "api/newGridtorio"
+local blueprints = require "api/blueprints"
 
 
 require "interfaces"
@@ -26,6 +27,7 @@ global.players = require "data/players"
 
 global.colors = require "data/colors"
 global.styles = require "data/styles"
+global.blueprints = require "data/blueprints"
 
 global.siloBase = require "data/siloBase"
 global.runs = require "data/runs"
@@ -145,6 +147,15 @@ script.on_init(function(event)
     global.coinsConsumedThisSecond = 0
     global.coinsConsumed = {}
     global.chunksUnlockedBy = {}
+
+    for bpID, _ in pairs(global.blueprints.strings) do
+        local itemStack = blueprints.getItemStack(bpID)
+        if itemStack then
+            global.blueprints.itemStacks[bpID] = itemStack
+        else
+            log("ERROR: Failed to load blueprint \"" .. bpID .. "\"")
+        end
+    end
 
     applyNauvisMapSettings()
 

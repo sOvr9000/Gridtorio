@@ -36,6 +36,7 @@ function tools.init(player)
     tools.initMarketRNG(toolsFlow)
     tools.initTradeUniqueness(toolsFlow)
     tools.initFreeRoboports(toolsFlow)
+    tools.initFreeRailways(toolsFlow)
     tools.initMarketIOChests(toolsFlow)
     tools.initInfestedChunks(toolsFlow)
     tools.addLine(toolsFlow)
@@ -266,6 +267,37 @@ function tools.initFreeRoboports(toolsFlow)
     }
     enableFreeRoboportsLabel.visible = false
     enableFreeRoboportsLabel.tooltip = {"gridtorio-gui.global-tools-tooltip"}
+end
+
+function tools.initFreeRailways(toolsFlow)
+    local freeRailwaysFlow = toolsFlow.add{
+        type = "flow",
+        name = "freeRailwaysFlow",
+    }
+    local featureLockedFrame = freeRailwaysFlow.add{
+        type = "frame",
+        name = "featureLockedFrame",
+    }
+    local featureLockedLabel = featureLockedFrame.add{
+        type = "label",
+        name = "featureLockedLabel",
+        caption = {"gridtorio-gui.feature-locked"},
+    }
+    styles.applyStyle(featureLockedLabel, "featureLocked")
+    local enableFreeRailways = freeRailwaysFlow.add{
+        type = "checkbox",
+        name = "enableFreeRailways",
+        state = true,
+    }
+    enableFreeRailways.visible = false
+    styles.applyStyle(enableFreeRailways, "toggleButton")
+    local enableFreeRailwaysLabel = freeRailwaysFlow.add{
+        type = "label",
+        name = "enableFreeRailwaysLabel",
+        caption = {"gridtorio-gui.tools-toggle-free-railways"},
+    }
+    enableFreeRailwaysLabel.visible = false
+    enableFreeRailwaysLabel.tooltip = {"gridtorio-gui.global-tools-tooltip"}
 end
 
 function tools.initMarketIOChests(toolsFlow)

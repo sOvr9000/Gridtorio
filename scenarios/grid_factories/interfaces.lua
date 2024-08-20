@@ -28,10 +28,16 @@ end
 
 for apiName, apiFuncs in pairs(api) do
     local interface = {}
+    local any = false
     for funcName, func in pairs(apiFuncs) do
-        interface[funcName] = func
+        if type(func) == "function" then
+            interface[funcName] = func
+            any = true
+        end
     end
-    remote.add_interface("gridtorio-" .. apiName, interface)
+    if any then
+        remote.add_interface("gridtorio-" .. apiName, interface)
+    end
 end
 -- remote.add_interface("gridtorio-gutil", {isGameReady = gutil.isGameReady})
 -- remote.add_interface("gridtorio-itemValues", {getItemValue = itemValues.getItemValue, isReady = itemValues.isReady, isDefined = itemValues.isDefined})

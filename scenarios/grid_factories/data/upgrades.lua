@@ -164,6 +164,18 @@ local upgrades = {
             sprite = "utility/set_bar_slot",
             -- wip = true,
         },
+        {
+            position = {-1, -2},
+            name = "freeRailways",
+            prerequisite = "marketIoChests",
+            requirement = {
+                type = "unlockChunks",
+                value = 200,
+            },
+            isGlobalToggle = true,
+            canToggle = true,
+            sprite = "entity/rail-signal",
+        },
     },
     upgradeTreeIndexed = {},
 
@@ -180,6 +192,7 @@ local upgrades = {
         patchPurification = false,
         marketRng = false,
         freeRoboports = false,
+        freeRailways = false,
         tradeUniqueness = false,
     },
 

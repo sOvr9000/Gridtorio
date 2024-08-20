@@ -12,6 +12,7 @@ local voidChunks = require "voidChunks"
 local superChunks = require "superChunks"
 local dimensionalChunks = require "dimensionalChunks"
 local teleporters = require "teleporters"
+local freeRailways = require "freeRailways"
 local gui = require "gui"
 
 local config = {}
@@ -80,6 +81,7 @@ function config.init()
     util.tableExtend(global.config, superChunks)
     util.tableExtend(global.config, dimensionalChunks)
     util.tableExtend(global.config, teleporters)
+    util.tableExtend(global.config, freeRailways)
     util.tableExtend(global.config, gui)
 
 end

@@ -21,5 +21,14 @@ return {
         ["voidTile"] = true,
         ["voidTileAlt"] = true,
         ["tile"] = true,
-    }
+    },
+
+    railGridTypeDropdown = {
+        "T junctions",
+        "X junctions",
+    },
+
+    configWithRailGridTypeDropdown = {
+        ["railGridType"] = true,
+    },
 }

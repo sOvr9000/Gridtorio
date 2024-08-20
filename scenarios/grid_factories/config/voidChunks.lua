@@ -2,7 +2,7 @@
 return {
     voidChunks = {
         -- The chance of a void chunk generating when it's at its minimum distance from spawn.
-        minChance = 0.06,
+        minChance = 0.03,
 
         -- The chance of a void chunk generating when it's at its maximum distance from spawn or farther.
         maxChance = 0.55,
